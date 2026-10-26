@@ -11,7 +11,7 @@ Skin are named USERNAME-THEME.pak
 
 Available themes are:
 
-Terrorist
+Rebel
 Zombie
 Swat
 Villager
