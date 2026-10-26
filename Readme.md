@@ -21,3 +21,7 @@ and more to come.
 Theme is the team's name.
 
 A username can contain as many - as you want. A theme cannot.
+
+It did not add specification for skin depending on weapon.
+
+
