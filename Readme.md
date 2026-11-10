@@ -3,7 +3,7 @@ Work in progress
 
 All skins must be colorable to match team's color.
 
-Each skin is a .pak file.
+Each skin is a folder.
 
 A GitHub user can only create and edit ONE skin.
 
