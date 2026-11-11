@@ -1,0 +1,19 @@
+#!/bin/bash
+# Refuse a commit message that references Claude or AI.
+set -uo pipefail
+
+source "$(dirname "$0")/no-ai-refs.sh"
+
+# Comments are stripped before the message is stored, so ignore them.
+message="$(mktemp)"
+trap 'rm -f "$message"' EXIT
+grep -v '^#' -- "$1" > "$message" || true
+
+if ai_refs_in "$message"; then
+	echo
+	echo "This commit message references Claude or AI, on the lines above." >&2
+	echo "Reword it. These references do not belong in this repository." >&2
+	exit 1
+fi
+
+exit 0

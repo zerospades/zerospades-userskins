@@ -39,6 +39,12 @@ author; a maintainer can still merge it.
 Don't rename or delete a skin folder: the folder name is the lookup key, so renaming it
 silently takes the skin away from the player wearing it.
 
+After cloning, turn the repository's hooks on once — git does not do it for you:
+
+```sh
+git config core.hooksPath .githooks
+```
+
 ### Layout
 
 ```
