@@ -1,0 +1,26 @@
+name: Check skins
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Warnings only, so a maintainer can always merge. See .github/check-skins.py.
+      - name: Check skins
+        env:
+          # Lets the script ask the commits API which account created a skin.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 .github/check-skins.py \
+            "${{ github.event.pull_request.user.login }}" \
+            "origin/${{ github.base_ref || github.ref_name }}"
